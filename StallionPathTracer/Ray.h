@@ -1,6 +1,6 @@
 #pragma once
 
-#include"libraries\glm\glm\glm.hpp"
+#include "libraries/glm/glm/glm.hpp"
 
 class Ray
 {
