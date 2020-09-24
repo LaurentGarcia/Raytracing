@@ -6,7 +6,7 @@ class Ray
 {
 public:
 	Ray();
-	Ray(glm::vec3& a, const glm::vec3& b) { A = a; B = b; }
+	Ray(glm::vec3 a, glm::vec3 b) { this->A = a; this->B = b; }
 	//~Ray();
 
 	const glm::vec3 Origin(){return this->A;};
