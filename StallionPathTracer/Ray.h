@@ -5,13 +5,13 @@
 class Ray
 {
 public:
-	Ray();
+	Ray(){};
 	Ray(glm::vec3 a, glm::vec3 b) { this->A = a; this->B = b; }
 	//~Ray();
 
-	const glm::vec3 Origin(){return this->A;};
-	const glm::vec3 Direction(){return this->B;};
-	const glm::vec3 PointAtParameter(float t){return this->A + t *this-> B;};
+	glm::vec3 Origin(){return this->A;};
+	glm::vec3 Direction(){return this->B;};
+	glm::vec3 PointAtParameter(float t){return this->A + t *this-> B;};
 
 private:
 	glm::vec3 A;

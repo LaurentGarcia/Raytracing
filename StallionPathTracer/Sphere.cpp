@@ -1,9 +1,10 @@
 #include "Sphere.h"
 
-Sphere::Sphere(glm::vec3 center, float r)
+Sphere::Sphere(glm::vec3 center, float r, Material* mptr)
 {
     this->center = center;
     this->radius      = r;
+    this->mtr_ptr = mptr;
 }
 
 bool Sphere::hit(Ray& r, float t_min, float t_max, hit_record& rec) const
@@ -22,6 +23,7 @@ bool Sphere::hit(Ray& r, float t_min, float t_max, hit_record& rec) const
             rec.t = temp;
             rec.p = r.PointAtParameter(rec.t);
             rec.normal = (rec.p - center)/radius;
+            rec.mtr_ptr = this->mtr_ptr;
             return true;
         }
         temp = (-b + sqrt(b*b-a*c))/a;
@@ -30,6 +32,7 @@ bool Sphere::hit(Ray& r, float t_min, float t_max, hit_record& rec) const
             rec.t = temp;
             rec.p = r.PointAtParameter(rec.t);
             rec.normal = (rec.p - center)/radius;
+            rec.mtr_ptr = this->mtr_ptr;
             return true;
         }
     }
